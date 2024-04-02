@@ -47,7 +47,7 @@ class Config(object):
     DRAGONS = [6574373060]  # Sudo users
     DEV_USERS = [6574373060]  # Dev users
     DEMONS = [6574373060]  # Support users
-    TIGERS = 6574373060[]  # Tiger users
+    TIGERS = 6574373060 # Tiger users
     WOLVES = [6574373060]  # Whitelist users
 
     # Toggle features
