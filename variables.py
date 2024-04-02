@@ -24,8 +24,8 @@ class Config(object):
     MONGO_DB_URI = "mongodb+srv://t45:t45@cluster0.plfylpo.mongodb.net/?retryWrites=true&w=majority"
 
     # Support chat and support ID
-    SUPPORT_CHAT = "ProjectCodeXSupport"
-    SUPPORT_ID = -1001629811868
+    SUPPORT_CHAT = "-1002036001760"
+    SUPPORT_ID = -1002036001760
 
     # Database name
     DB_NAME = "MikoDB"
@@ -34,7 +34,7 @@ class Config(object):
     TOKEN = "7181246957:AAFjy_RYBxGfVcCzWh7qXnoQ85V7RMKBsIQ"  # Get bot token from @BotFather on Telegram
 
     # Owner's Telegram user ID (Must be an integer)
-    OWNER_ID = 5907205317
+    OWNER_ID = 6574373060
     # <=======================================================================================================>
 
     # <================================================ OPTIONAL ======================================================>
@@ -44,11 +44,11 @@ class Config(object):
     BL_CHATS = []
 
     # User IDs of sudo users, dev users, support users, tiger users, and whitelist users
-    DRAGONS = []  # Sudo users
-    DEV_USERS = []  # Dev users
-    DEMONS = []  # Support users
-    TIGERS = []  # Tiger users
-    WOLVES = []  # Whitelist users
+    DRAGONS = [6574373060]  # Sudo users
+    DEV_USERS = [6574373060]  # Dev users
+    DEMONS = [6574373060]  # Support users
+    TIGERS = 6574373060[]  # Tiger users
+    WOLVES = [6574373060]  # Whitelist users
 
     # Toggle features
     ALLOW_CHATS = True
