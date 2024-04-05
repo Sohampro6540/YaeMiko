@@ -57,7 +57,7 @@ CAP2 = """
 """
 
 
-@app.on_message(filters.command(["couple", "couples", "shipping"]) & ~filters.private)
+@app.on_message(filters.command(["couple", "couples", "shipping" "jodi"]) & ~filters.private)
 async def nibba_nibbi(_, message):
     if message.from_user.id == 5540249238:
         my_ = await _.get_users("rfxtuv")
