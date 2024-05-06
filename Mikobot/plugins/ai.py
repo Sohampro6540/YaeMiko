@@ -16,7 +16,7 @@ from Mikobot.state import state
 # <=======================================================================================================>
 
 # <================================================ CONSTANTS =====================================================>
-API_URL = "https://api.picsart.io/tools/1.0/upscale"
+API_URL = "https://lexica.qewertyy.me/models"
 PALM_MODEL_ID = 0
 GPT_MODEL_ID = 5
 
