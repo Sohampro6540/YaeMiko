@@ -129,7 +129,7 @@ async def upscale_image(update: Update, context: ContextTypes.DEFAULT_TYPE):
     except Exception as e:
         logger.error(f"Failed to upscale the image: {e}")
         await update.message.reply_text(
-            "LOL HORAHA KAT GAYA TUMARA DEVELOPER KAB BANEGA SOHAM TU ."
+            "Failed to upscale the image. Please try again later."
         )
 
 
