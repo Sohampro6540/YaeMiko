@@ -2,30 +2,26 @@
 # API CREDITS: @Qewertyy
 # PROVIDED BY: https://github.com/Team-ProjectCodeX
 
-# <============================================== IMPORTS =========================================================>
 import base64
+import requests  # Add requests library for making HTTP requests
 
 from telegram import Update
 from telegram.constants import ParseMode
 from telegram.ext import CommandHandler, ContextTypes
 
-from Mikobot import LOGGER as logger
-from Mikobot import function
-from Mikobot.state import state
-
 # <=======================================================================================================>
 
 # <================================================ CONSTANTS =====================================================>
-API_URL = "DAXX_API-Na?*oqona191equAb_robot182"
-PALM_MODEL_ID = 0
-GPT_MODEL_ID = 5
+API_URL = "http://127.0.0.1:5000/chatbot"  # Mock API URL
+PALM_MODEL_ID = "PALM"
+GPT_MODEL_ID = "GPT"
 
 # <================================================ FUNCTIONS =====================================================>
 
 
 async def get_api_response(model_id, api_params, api_url):
     try:
-        response = await state.post(api_url, params=api_params)
+        response = requests.post(api_url, json=api_params)  # Send POST request to mock API
         if response.status_code == 200:
             data = response.json()
             return data.get(
@@ -33,7 +29,7 @@ async def get_api_response(model_id, api_params, api_url):
             )
         else:
             return f"Error: Request failed with status code {response.status_code}."
-    except state.RequestError as e:
+    except requests.RequestException as e:
         return f"Error: An error occurred while calling the {model_id} API. {e}"
 
 
@@ -53,7 +49,7 @@ async def palm_chatbot(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
 
     api_params = {"model_id": PALM_MODEL_ID, "prompt": input_text}
-    api_response = await get_api_response("PALM", api_params, API_URL)
+    api_response = await get_api_response(PALM_MODEL_ID, api_params, API_URL)
 
     await result_msg.delete()
     await context.bot.send_message(chat_id=update.effective_chat.id, text=api_response)
@@ -75,7 +71,7 @@ async def gpt_chatbot(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
 
     api_params = {"model_id": GPT_MODEL_ID, "prompt": input_text}
-    api_response = await get_api_response("GPT", api_params, API_URL)
+    api_response = await get_api_response(GPT_MODEL_ID, api_params, API_URL)
 
     await result_msg.delete()
     await context.bot.send_message(chat_id=update.effective_chat.id, text=api_response)
@@ -138,4 +134,4 @@ async def upscale_image(update: Update, context: ContextTypes.DEFAULT_TYPE):
 function(CommandHandler("upscale", upscale_image, block=False))
 function(CommandHandler("palm", palm_chatbot, block=False))
 function(CommandHandler("askgpt", gpt_chatbot, block=False))
-# <================================================ END =======================================================>
+# <============================
